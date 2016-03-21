@@ -41,3 +41,10 @@ use-models.h: models.inc Makefile
 clean:
 	$(RM) $(EXEC) $(OBJS) use-models.h \
 		out.ppm gmon.out
+
+check: out.ppm orgin.ppm
+	@if cmp -s out.ppm orgin.ppm;then \
+        echo "\033[40;32mOK!\033[0m"; \
+    else \
+        echo "\033[40;41mFail!\033[0m"; \
+	fi
